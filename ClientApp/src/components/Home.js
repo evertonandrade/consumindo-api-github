@@ -1,28 +1,65 @@
-import React, { Component, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import React, { Component } from 'react';
+import { FaGithubAlt, FaSearch } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import LogoImg from '../assets/GithubLogo.png';
 import './Home.css';
 
-export class Home extends Component {
-  static displayName = Home.name;
+import api from '../services/api';
 
-  render () {
-    return (
-      <div className="logon-container">
-            <section className="form">
+import './Home.css';
+
+export class Home extends Component {
+    state = {
+        username: '',
+        user: []
+    };
+
+    handleInput = e => {
+        this.setState({ username: e.target.value });
+    }
+
+    handleSubmit = async e => {
+        e.preventDefault();
+
+        const { username } = this.state;
+
+        const response = await api.get(`users/${username}`);
+
+        const data = response.data;
+
+        this.setState({
+            user: data,
+            username: ''
+        });
+    }
+
+    render() {
+        const photo = 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png';
+        const { username, user } = this.state;
+
+        return (
+            <div className="logon-container">
+              <section className="form">
                 <img src={LogoImg} alt="Logo"/>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <h1>Faça seu Login</h1>
                     <input 
-                        placeholder="Informe seu usuário"
+                        type="text" 
+                        value={username}
+                        placeholder="Insira um usuário do github..."
+                        onChange={this.handleInput}
                     />
-                    <button className="button" type="submit" >Entrar</button>
+                    <button className="button" type="submit" >Pesquisar</button>
                 </form>
-            </section>
+              </section>
+                <Link to={`/repositorio/${user.login}`}>
+                    <div className="user">
+                        <img src={user.avatar_url ? user.avatar_url : photo} alt="Perfil"/>
+                        <p>{user.login}</p>
+                    </div>
+                </Link>
 
-            {/* <img src={GithubImg} alt="Heroes"/> */}
-        </div>
-    );
-  }
+            </div>
+        );
+    }
 }

@@ -5,10 +5,7 @@ export class Repositorio extends Component {
 
   render() {
     return (
-      <div>
-        Repositorio
-      </div>
-        
+        <div>aaaaa</div>
     );
   }
 }

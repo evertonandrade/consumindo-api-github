@@ -29,3 +29,37 @@ img {
     font-size: 32px;
     margin-bottom: 32px;
 }
+
+div .user {
+    display: flex;
+    flex-direction: left;
+    align-items: center;
+    background: #7cbae6;
+    max-width: 555px;
+    margin: 80px auto;
+    border-radius: 8px;
+    
+}
+
+div .user {
+    background: #FFF;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
+    border-radius: 2px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+div .user img {
+    margin-right: 30px;
+    width: 254px;
+    height: 254px;
+    border-radius: 50%;
+}
+div .user p {
+    
+    margin-left: 30px;
+    font-size: 50px;
+    color: #111;
+}
