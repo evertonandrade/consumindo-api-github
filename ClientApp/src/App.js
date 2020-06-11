@@ -16,7 +16,7 @@ export default class App extends Component {
       <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/repositorio/:username' component={Repositorio} />
-        <Route path='/pesquisa' component={Pesquisa} />
+        <Route path='/pesquisa/:username' component={Pesquisa} />
         <Route path='/favorito' component={Favorito} />
       </Layout>
     );

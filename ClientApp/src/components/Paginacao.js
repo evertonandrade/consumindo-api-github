@@ -11,7 +11,7 @@ const Paginacao = ({ reposPerPage, totalRepos, paginate, username }) => {
     
     return (
         <div className="skin-primary-color">
-                <ul className="pages">
+                <ul className="pagination">
                     {numberPages.map(number => (
                         <li key={number} className="page-item">
                             <Link onClick={() => paginate(number)} to={`/repositorio/${username}`} className="page-link">

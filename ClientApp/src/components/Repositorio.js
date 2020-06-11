@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaGithubAlt, FaArrowLeft } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Paginacao from './Paginacao';
 
@@ -45,12 +45,11 @@ export class Repositorio extends Component {
         return (
             <div className="container-repositorio">
                 <header>
-                    <FaGithubAlt color="#000" size={30} />
                     <span>Seus Repositórios</span>
                 </header>
 
-                <div className="user">
-                    <div className="back-button">
+                <div className="user-repos">
+                    <div>
                         <Link to="/">
                             <FaArrowLeft color="#000" size={30} />
                         </Link>
@@ -60,7 +59,6 @@ export class Repositorio extends Component {
                         <img src={userData.avatar_url} alt="Perfil" />
                         <span>@{userData.login} </span>
                     </div>
-
                     <ul className="repo-info">
                         {currentRepos.map(repositories => (
                             <li key={repositories.id}>

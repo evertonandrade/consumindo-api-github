@@ -1,6 +1,5 @@
-.skin-primary-color ul li .pages {
+.skin-primary-color ul li .pagination {
     display: inline;
     align-items: center;
     justify-content: center;
-    margin: auto;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaGithubAlt, FaPlus, FaSpinner, FaSearch } from 'react-icons/fa';
+import { FaSpinner, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 import './Pesquisa.css'
@@ -8,7 +8,7 @@ import api from '../services/api';
 
 export class Pesquisa extends Component {
   state = {
-    user: '',
+    username: '',
     newRepo: '',
     repositories: [],
     loading: false,
@@ -40,7 +40,8 @@ export class Pesquisa extends Component {
       this.setState({ loading: true });
 
       const { newRepo, repositories } = this.state;
-      const response = await api.get(`/repos/${newRepo}`);
+      const { match } = this.props
+      const response = await api.get(`/repos/${match.params.username}/${newRepo}`);
 
       const data = {
           name: response.data.full_name,
@@ -50,6 +51,7 @@ export class Pesquisa extends Component {
           repositories: [...repositories, data],
           newRepo: '',
           loading: false,
+          username: match.params.username
       });
   };
 
@@ -58,42 +60,42 @@ export class Pesquisa extends Component {
 
       return (
           <div className="container-pesquisa">
-              <h1>
-                  <FaGithubAlt />
-                  <span>Repositórios</span>
-              </h1>
+              <div className="container-exibicao">
+                <h1>
+                    <span>Pesquisar Repositórios</span>
+                </h1>
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="Digite o nome do repositório..."
+                        value={newRepo}
+                        onChange={this.handleInputChange}
+                    />
 
-              <form onSubmit={this.handleSubmit}>
-                  <input
-                      type="text"
-                      placeholder="Pesquisar repositório"
-                      value={newRepo}
-                      onChange={this.handleInputChange}
-                  />
+                    <button type="submit" loading={loading ? 1 : 0}>
+                        {loading ? (
+                            <FaSpinner color="#FFF" size={14} />
+                        ) : (
+                            <FaSearch color="#FFF" size={14} />
+                        )}
+                    </button>
+                </form>
 
-                  <button type="submit" loading={loading ? 1 : 0}>
-                      {loading ? (
-                          <FaSpinner color="#FFF" size={14} />
-                      ) : (
-                          <FaSearch color="#FFF" size={14} />
-                      )}
-                  </button>
-              </form>
-
-              <ul>
-                  {repositories.map(repository => (
-                      <li key={repository.name}>
-                          <span>{repository.name}</span>
-                          <Link
-                              to={`/Repository/${encodeURIComponent(
-                                  repository.name
-                              )}`}
-                          >
-                              Detalhes
-                          </Link>
-                      </li>
-                  ))}
-              </ul>
+                <ul>
+                    {repositories.map(repository => (
+                        <li key={repository.name}>
+                            <span>{repository.name}</span>
+                            <Link
+                                to={`/Repository/${encodeURIComponent(
+                                    repository.name
+                                )}`}
+                            >
+                                Detalhes
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+              </div>
           </div>
       );
     }

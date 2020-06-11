@@ -1,51 +1,63 @@
 .container-repositorio {
     width: 80%;
-    margin: 0 auto;
+    margin: 0px auto;
 }
 
-.container-repositorio form {
-    margin-top: 10px;
+.container-repositorio header {
+    margin-top: 60px;
+    justify-content: space-between;
+}
+
+.container-repositorio header span {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.container-repositorio .user-repos {
+    background: #FFF;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
+    border-radius: 2px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.container-repositorio .user-repos img {
+    width: 254px;
+    height: 254px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-image: linear-gradient(180deg, #0e82f8, #fff);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    padding: 3px;
+}
+
+
+.container-repositorio .user-repos svg{
+    margin-right: 40px;
+}
+
+.container-repositorio .user svg{
+    margin-right: 40px;
+}
+
+.container-repositorio .user-info{
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    align-items: center;
 }
 
 .container-repositorio .user-info span{
-    font-size: 30px;
-    margin-left: 60px;
-    align-items: center;
-}
-
-.container-repositorio form input {
-    flex: 1;
-    border: 1px solid #eee;
-    padding: 10px 15px;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.container-repositorio button {
-    background: #0e84f8;
-    border: 0;
-    padding: 0 15px;
-    margin-left: 10px;
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: 20px;
 }
 
 .container-repositorio ul {
     list-style: none;
-    margin-left: 180px;
+    margin-left: 100px;
     margin-top: 30px;
 }
 
@@ -55,7 +67,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 380px;
+    width: 360px;
 }
 
 .container-repositorio ul li + li {
