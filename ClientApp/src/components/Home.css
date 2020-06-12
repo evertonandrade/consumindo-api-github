@@ -3,16 +3,14 @@
     max-width: 1120px;
     height: 100vh;
     margin: 0 auto;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-img {
+.logon-container img {
     height: 100px;
     width: 300px;
-
 }
 
 .logon-container section.form {
@@ -30,24 +28,20 @@ img {
     margin-bottom: 32px;
 }
 
-div .user {
-    display: flex;
-    flex-direction: left;
-    align-items: center;
-    background: #7cbae6;
-    margin: 80px auto;
-    border-radius: 8px;
-    
+div .user-section h2{
+    margin-left: 10px;
 }
 
 div .user {
     background: #FFF;
     box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
     border-radius: 2px;
-    padding: 20px;
+    padding: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-content: center;
+    margin: 10px;
 }
 
 div .user img {
@@ -55,14 +49,17 @@ div .user img {
     height: 254px;
     object-fit: cover;
     border-radius: 50%;
-    background-image: linear-gradient(180deg, #0e82f8, #fff);
+    background-image: linear-gradient(0deg, #0e82f8, rgb(177, 174, 174));
     background-origin: border-box;
     background-clip: padding-box, border-box;
-    padding: 3px;
+    padding: 4px;
+    justify-content: center;
 }
 
 div .user p {
-    margin-left: 30px;
-    font-size: 40px;
-    color: #111;
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 40px; 
 }

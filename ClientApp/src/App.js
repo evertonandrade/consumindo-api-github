@@ -5,6 +5,7 @@ import { Home } from './components/Home';
 import { Favorito } from './components/Favorito';
 import { Repositorio } from './components/Repositorio';
 import { Pesquisa } from './components/Pesquisa'
+import { Detalhes } from './components/Detalhes'
 
 import './custom.css'
 
@@ -18,6 +19,7 @@ export default class App extends Component {
         <Route path='/repositorio/:username' component={Repositorio} />
         <Route path='/pesquisa/:username' component={Pesquisa} />
         <Route path='/favorito' component={Favorito} />
+        <Route path="/detalhes/:repository" component={Detalhes} />
       </Layout>
     );
   }

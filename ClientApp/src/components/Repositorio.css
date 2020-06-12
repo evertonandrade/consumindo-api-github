@@ -13,6 +13,11 @@
     font-weight: 500;
 }
 
+.container-repositorio header svg{
+    margin: 10px 20px 0px 0px;
+    float: right;
+}
+
 .container-repositorio .user-repos {
     background: #FFF;
     box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
@@ -29,10 +34,10 @@
     height: 254px;
     object-fit: cover;
     border-radius: 50%;
-    background-image: linear-gradient(180deg, #0e82f8, #fff);
+    background-image: rgb(0, 0, 0);
     background-origin: border-box;
     background-clip: padding-box, border-box;
-    padding: 3px;
+    padding: 4px;
 }
 
 

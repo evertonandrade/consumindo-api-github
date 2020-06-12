@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FaGithubAlt, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import LogoImg from '../assets/GithubLogo.png';
 import './Home.css';
@@ -34,7 +33,7 @@ export class Home extends Component {
     }
 
     render() {
-        const photo = 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png';
+        const photo = 'https://semeandoafeto.imadel.org.br/packages/trustir/exclusiva/img/user_placeholder.png';
         const { username, user } = this.state;
 
         return (
@@ -52,13 +51,15 @@ export class Home extends Component {
                     <button className="button" type="submit" >Pesquisar</button>
                 </form>
               </section>
-                <Link to={`/repositorio/${user.login}`}>
+              <section className="user-section">
+                <h2>Usuário: </h2>            
                     <div className="user">
-                        <img src={user.avatar_url ? user.avatar_url : photo} alt="Perfil"/>
-                        <p>{user.login}</p>
+                        <Link to={`/repositorio/${user.login}`}>
+                            <img src={user.avatar_url ? user.avatar_url : photo} alt="Perfil"/>
+                            <p>{user.login}</p>
+                        </Link>
                     </div>
-                </Link>
-
+              </section>
             </div>
         );
     }

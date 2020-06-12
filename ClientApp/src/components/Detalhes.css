@@ -1,0 +1,69 @@
+div .loading {
+    color: #0e84f8;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-detalhes {
+    width: 80%;
+    margin: 0px auto;
+}
+
+.container-detalhes a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+div .owner {
+    background: #FFF;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
+    border-radius: 2px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 40px;
+}
+
+div .owner .repo-autor {
+    margin-top: 40px;
+    color: #333;
+}
+
+div .owner .repo-autor img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+
+div .owner p {
+    color: #61616d;
+    font-size: 30px;
+    grid-column: span 2;
+    margin: 40px 0px;
+}
+
+div .owner h1 {
+    color: #0e84f8;
+    grid-column: span 2;
+}
+
+div .owner h1 svg {
+    margin-right: 20px;
+}
+
+div .owner span {
+    font-size: 20px;
+    color: #333;
+}
+
+div .owner span .repo-language {
+    margin-top: 50px;
+    font-size: 50px;
+}
+

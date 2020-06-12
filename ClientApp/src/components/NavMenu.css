@@ -1,14 +1,19 @@
 ﻿a.navbar-brand {
+  
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
-
+.nav-logo {
+  margin-left: 20px;
+}
 
 html {
-  font-size: 14px;
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
 }
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;

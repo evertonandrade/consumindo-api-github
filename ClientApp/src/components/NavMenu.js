@@ -29,7 +29,7 @@ export class NavMenu extends Component {
           <Container>
             <NavbarBrand tag={Link} to="/">
               Consumindo API
-              <FaGithubAlt />
+              <span className="nav-logo"><FaGithubAlt /></span>
             </NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>

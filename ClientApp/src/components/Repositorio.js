@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaArrowLeft, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Paginacao from './Paginacao';
 
@@ -14,7 +14,8 @@ export class Repositorio extends Component {
         reposData: [],
 
         currentPage: 1,
-        reposPerPage: 4
+        reposPerPage: 4,
+        loading: true,
     }
 
     async componentDidMount() {
@@ -28,13 +29,14 @@ export class Repositorio extends Component {
         this.setState({
             userData: user.data,
             reposData: repositories.data,
-            username: match.params.username
+            username: match.params.username,
+            loading: false
         });
     }
 
     render() {
         const { match } = this.props;
-        const { userData, reposData, currentPage, reposPerPage, username } = this.state;
+        const { userData, reposData, currentPage, reposPerPage, username, loading } = this.state;
 
         const indexOfLastRepos = currentPage * reposPerPage;
         const indexOfFirstPost = indexOfLastRepos - reposPerPage;
@@ -42,10 +44,16 @@ export class Repositorio extends Component {
 
         const paginate = (number) => this.setState({ currentPage: number });
 
+        if (loading) {
+            return <div className="loading">Carregando...</div>;
+        }
         return (
             <div className="container-repositorio">
                 <header>
                     <span>Seus Repositórios</span>
+                    <Link to={`/pesquisa/${userData.login}`}>
+                        <FaSearch color="#000" size={30} />
+                    </Link>
                 </header>
 
                 <div className="user-repos">
@@ -56,14 +64,20 @@ export class Repositorio extends Component {
                     </div>
                     
                     <div className="user-info">
-                        <img src={userData.avatar_url} alt="Perfil" />
+                        <img src={userData.avatar_url} alt="Perfil"/>
                         <span>@{userData.login} </span>
                     </div>
                     <ul className="repo-info">
                         {currentRepos.map(repositories => (
                             <li key={repositories.id}>
                                 <span> {repositories.name} </span>
-                                <a href={repositories.html_url}>Detalhes</a>
+                                <Link
+                                    to={`/detalhes/${userData.login}%2F${encodeURIComponent(
+                                        repositories.name
+                                    )}`}
+                                >
+                                    Detalhes
+                                </Link>
                             </li>
                         ))}
                     </ul>

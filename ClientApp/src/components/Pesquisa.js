@@ -14,23 +14,6 @@ export class Pesquisa extends Component {
     loading: false,
  };
 
-  //carregar dados do local storage
-  componentDidMount() {
-      const repositories = localStorage.getItem('repositories');
-
-      if (repositories) {
-          this.setState({ repositories: JSON.parse(repositories) });
-      }
-  }
-
-  //salvar dados do local storage
-  componentDidUpdate(_, prevState) {
-      const { repositories } = this.state;
-      if (prevState.repositories !== repositories) {
-          localStorage.setItem('repositories', JSON.stringify(repositories));
-      }
-  }
-
   handleInputChange = e => {
       this.setState({ newRepo: e.target.value });
   };
@@ -86,7 +69,7 @@ export class Pesquisa extends Component {
                         <li key={repository.name}>
                             <span>{repository.name}</span>
                             <Link
-                                to={`/Repository/${encodeURIComponent(
+                                to={`/detalhes/${encodeURIComponent(
                                     repository.name
                                 )}`}
                             >
