@@ -24,9 +24,7 @@ export class Detalhes extends Component {
   async componentDidMount() {
     const { match } = this.props;
     const repoName = decodeURIComponent(match.params.repository);
-    const [ repository ] = await Promise.all([
-      api.get(`/repos/${repoName}`)
-    ]);
+    const [repository] = await Promise.all([api.get(`/repos/${repoName}`)]);
 
     this.setState({
       repository: repository.data,
@@ -42,19 +40,29 @@ export class Detalhes extends Component {
     }
     return (
       <div className="container-detalhes">
-        <Link to={`/repositorio/${repository.owner.login}`} > Voltar aos repositórios</Link>
-        <div className="owner">  
+        <Link to={`/repositorio/${repository.owner.login}`}>
+          {" "}
+          Voltar aos repositórios
+        </Link>
+        <div className="owner">
           <h1>
             <GoRepo color="#000" size={50} />
-               {repository.name}
+            {repository.name}
             <div className="repo-autor">
-              <img src={repository.owner.avatar_url} alt={repository.owner.login} />
+              <img
+                src={repository.owner.avatar_url}
+                alt={repository.owner.login}
+              />
               <span>@{repository.owner.login}</span>
             </div>
           </h1>
           <p>{repository.description ? repository.description : "..."}</p>
-          <span className="repo-language">Linguagem: {repository.language}</span>
-          <span className="repo-up">Atualizado em: {repository.updated_at}</span>
+          <span className="repo-language">
+            Linguagem: {repository.language}
+          </span>
+          <span className="repo-up">
+            Atualizado em: {repository.updated_at}
+          </span>
         </div>
       </div>
     );

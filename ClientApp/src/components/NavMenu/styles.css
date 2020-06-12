@@ -5,8 +5,8 @@
   word-break: break-all;
 }
 
-.nav-logo {
-  margin-left: 20px;
+.nav-logo svg {
+  margin-right: 15px;
 }
 
 html {
