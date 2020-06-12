@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import LogoImg from '../assets/GithubLogo.png';
-import './Home.css';
+import LogoImg from '../../assets/GithubLogo.png';
+import './styles.css';
 
-import api from '../services/api';
-
-import './Home.css';
+import api from '../../services/api';
 
 export class Home extends Component {
     state = {

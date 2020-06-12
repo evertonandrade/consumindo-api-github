@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Paginacao.css'
+import './styles.css'
 
 const Paginacao = ({ reposPerPage, totalRepos, paginate, username }) => {
     const numberPages = [];

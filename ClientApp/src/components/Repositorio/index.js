@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { FaArrowLeft, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import Paginacao from './Paginacao';
+import Paginacao from '../Paginacao';
 
-import './Repositorio.css'
+import './styles.css'
 
-import api from '../services/api';
+import api from '../../services/api';
 
 export class Repositorio extends Component {
     state = {

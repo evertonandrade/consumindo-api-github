@@ -3,9 +3,9 @@ import { GoRepo } from "react-icons/go";
 import { Link } from "react-router-dom";
 import Proptypes from "prop-types";
 
-import api from "../services/api";
+import api from "../../services/api";
 
-import "./Detalhes.css";
+import "./styles.css";
 
 export class Detalhes extends Component {
   static propTypes = {

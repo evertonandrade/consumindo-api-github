@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { FaSpinner, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-import './Pesquisa.css'
+import './styles.css'
 
-import api from '../services/api';
+import api from '../../services/api';
 
 export class Pesquisa extends Component {
   state = {
